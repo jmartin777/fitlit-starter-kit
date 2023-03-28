@@ -1,6 +1,5 @@
 class User {
     constructor(userData){
-        
         const randomUser = Math.floor(Math.random() * 49);
         for(var i  = 0; i < userData.users.length; i++){
             //MEANT TO FIND THE RANDOM USER
