@@ -1,4 +1,3 @@
-
 class userHydration {
   constructor(userID, hydrationDataArray) {
     this.userID = userID
@@ -26,7 +25,12 @@ class userHydration {
     return totalOunces
   }
 
-  calculateOuncesLastSevenDays() {
+  calculateOuncesLastSevenDays(startDate, endDate) {
+    // We want this to calc last seven days 
+    // needs return an array of numbers 
+    // use a forEach to log 
+    return this.hydrationInfo.sort()
+
 
   }
 }
