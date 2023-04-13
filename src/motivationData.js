@@ -24,6 +24,6 @@ const motivationalQuotes = [
  "Be the change you want to see in the world.",
  "When you pay attention to detail, the big picture will take care of itself."
  ];
-
+ 
  export default motivationalQuotes
 
