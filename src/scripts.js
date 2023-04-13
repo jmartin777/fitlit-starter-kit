@@ -13,6 +13,7 @@ import UserHydration from './userHydration';
 import Sleep from './Sleep';
 import fetchAll from './apiCalls';
 import Activity from './Activity';
+import fetchNewHydration from './newHydrationdata'
 
 // Global Varible Section
 let userData
@@ -29,6 +30,8 @@ let currentUserActivity;
 const hydrationDisplay = document.querySelector('.hydration-display')
 const sleepDisplay = document.querySelector('.sleep-display')
 const activityDisplay = document.querySelector('.activity-display')
+const newHydrationData = document.querySelector('.hydration-display')
+
 
 window.addEventListener('load', () => {
   fetchAll()
@@ -36,10 +39,15 @@ window.addEventListener('load', () => {
       userData = data[0]
       allUserSleepData = data[1]
       allUserHydrationData = data[2]
+      console.log(allUserHydrationData)
       allUserActivityData = data[3]
       pageLoad()
+      fetchNewHydration()
     })
 })
+
+// newHydrationData.addEventListener('click', createNewHydrationData())
+
 
 function loadUserInfo(currentUserData, userData) {
   document.getElementById('firstName').innerHTML = `Welcome ${currentUserData.userName}!`;
@@ -75,6 +83,7 @@ function pageLoad() {
     currentUserHydration.findSingleDayOunces(currentUserHydration.findMostRecentDay()));
   createSevenDayCard('Ounces for Week',
     currentUserHydration.findOuncesLastSevenDays());
+    // createNewHydrationData('Today\'s Ounces', )
 
   // Activity 
   activityCard(currentUserActivity.findMostRecentSteps(),
@@ -167,13 +176,13 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
 
 function createSingleCard(cardTitle, outputToDisplay) {
   hydrationDisplay.innerHTML += `
-        <section class='card single'> 
-             <h3> ${cardTitle} </h3>
-            <div>
-                <p> ${outputToDisplay} </p>
-            </div>
-            <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
-         </section>`
+  <section class='card single'> 
+  <h3> ${cardTitle} </h3>
+  <div>
+  <p> ${outputToDisplay} </p>
+  </div>
+  <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
+  </section>`
 }
 
 function createSevenDayCard(cardTitle, outputToDisplay) {
@@ -191,3 +200,18 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
     </div>
   </section>`
 }
+
+export default currentUser
+
+// function createNewHydrationData(cardTitle, outputToDisplay) {
+//   const newHydrationData = fetchHydrationData()
+
+//   hydrationDisplay.innerHTML += `
+//         <section class='card single'> 
+//         <h3> ${cardTitle} </h3>
+//         <div>
+//         <p> ${outputToDisplay} </p>
+//         </div>
+//         <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
+//         </section>`
+// }
