@@ -13,7 +13,8 @@ import UserHydration from './userHydration';
 import Sleep from './Sleep';
 import fetchAll from './apiCalls';
 import Activity from './Activity';
-import fetchNewHydration from './newHydrationdata'
+import fetchNewHydration from './newHydrationdata';
+import motivationalQuotes from './motivationData';
 
 // Global Varible Section
 let userData
@@ -31,7 +32,10 @@ const hydrationDisplay = document.querySelector('.hydration-display')
 const sleepDisplay = document.querySelector('.sleep-display')
 const activityDisplay = document.querySelector('.activity-display')
 const newHydrationData = document.querySelector('.hydration-display')
-
+const motivatedInput = document.getElementById("motivated-input")
+const unmotivatedInput = document.getElementById("unmotivated-input")
+const displayQuoteBox = document.querySelector(".display-quote-box")
+const submitButton = document.querySelector(".submit-message-button")
 
 window.addEventListener('load', () => {
   fetchAll()
@@ -89,6 +93,14 @@ function pageLoad() {
   activityCard(currentUserActivity.findMostRecentSteps(),
     currentUserActivity.calculateMiles(currentUserActivity.findMostRecentDay()),
     currentUserActivity.findStepsLastSevenDays(currentUserActivity.findMostRecentDay()), currentUserActivity.checkGoalLastSevenDays(currentUserActivity.findMostRecentDay()))
+}
+function selectMotivation() {
+ if(motivatedInput.checked === true){
+  displayQuoteBox.innerText = `${motivationalQuotes[getRandomIndex(motivationalQuotes)]}`
+ } else if(unmotivatedInput.checked === true){
+  displayQuoteBox.innerText = `${motivationalQuotes[getRandomIndex(motivationalQuotes)]}`
+ }
+
 }
 
 function sleepSummaryCard(avgHours, avgQuality) {
@@ -199,6 +211,10 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
       <p> ${outputToDisplay[6]} </p>
     </div>
   </section>`
+}
+
+getRandomIndex(array){
+  return Math.floor(math.random()*array.lenght)
 }
 
 export default currentUser
