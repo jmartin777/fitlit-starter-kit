@@ -1,13 +1,10 @@
-
-import currentUser from "./scripts"
-
 const hydrationURL = 'http://localhost:3001/api/v1/hydration'
 
-const fetchNewHydration = (numOunces) => {
+const fetchNewHydration = (userId, currentDate) => {
   fetch(hydrationURL, {
     method: 'POST',
     body: JSON.stringify({   
-      userID: 1,
+      userID: user,
       date: "4/11/2023",
       numOunces: 54
   }),
@@ -17,6 +14,7 @@ const fetchNewHydration = (numOunces) => {
   .then(data => {
     console.log(data);
     currentUser.numOunces = numOunces;
+    // and update the dom because we have new data
   })
   .catch(error => console.log(error))
  }

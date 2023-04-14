@@ -46,7 +46,6 @@ window.addEventListener('load', () => {
       console.log(allUserHydrationData)
       allUserActivityData = data[3]
       pageLoad()
-      fetchNewHydration()
     })
 })
 
@@ -94,6 +93,12 @@ function pageLoad() {
     currentUserActivity.calculateMiles(currentUserActivity.findMostRecentDay()),
     currentUserActivity.findStepsLastSevenDays(currentUserActivity.findMostRecentDay()), currentUserActivity.checkGoalLastSevenDays(currentUserActivity.findMostRecentDay()))
 }
+submitButton.addEventListener('click', selectMotivation)
+
+function getRandomIndex(array){
+  return Math.floor(Math.random() * array.length)
+};
+
 function selectMotivation() {
  if(motivatedInput.checked === true){
   displayQuoteBox.innerText = `${motivationalQuotes[getRandomIndex(motivationalQuotes)]}`
@@ -213,9 +218,7 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
   </section>`
 }
 
-getRandomIndex(array){
-  return Math.floor(math.random()*array.lenght)
-}
+
 
 export default currentUser
 
