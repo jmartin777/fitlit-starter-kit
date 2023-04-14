@@ -1,6 +1,6 @@
 const hydrationURL = 'http://localhost:3001/api/v1/hydration'
 
-const fetchNewHydration = (userId, currentDate) => {
+const fetchNewHydration = (userId, currentDate, userOunces) => {
   fetch(hydrationURL, {
     method: 'POST',
     body: JSON.stringify({   

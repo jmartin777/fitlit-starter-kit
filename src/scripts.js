@@ -82,7 +82,7 @@ function pageLoad() {
     currentUserSleep.findDetailLastSevenDays('sleepQuality'));
 
   // Hydration
-  createSingleCard('Today\'s Ounces',
+  createSingleCard(currentUserHydration.findMostRecentDay(),
     currentUserHydration.findSingleDayOunces(currentUserHydration.findMostRecentDay()));
   createSevenDayCard('Ounces for Week',
     currentUserHydration.findOuncesLastSevenDays());
@@ -114,10 +114,10 @@ function sleepSummaryCard(avgHours, avgQuality) {
        <h3> Sleep Summary </h3>
       <div>
           <p>All-time Hours Average: </p>  
-          <p> ${avgHours} </p> 
-          <br>
+          <p> ${avgHours} Avg </p> 
+          
           <p> All-time Quality Average: </p>
-          <p> ${avgQuality} </p>
+          <p> ${avgQuality} Avg </p>
       </div>
       <img id="sleepIcon" src="Sleep-Icon.PNG" alt="Sleep-Icon" width="50" height="50"/>
    </section>`
@@ -129,17 +129,17 @@ function sleepWeekCard(detail, detailToday, detailByWeek) {
     <h3>Sleep ${detail}</h3>
        <h3> Today </h3>
       <div>
-             <p> ${detailToday} </p> 
+             <p> Hours Today ${detailToday} </p> 
       </div>
       <h3> This Week </h3>
       <div class='data-row'>
-        <p> ${detailByWeek[0]} </p>
-        <p> ${detailByWeek[1]} </p>
-        <p> ${detailByWeek[2]} </p>
-        <p> ${detailByWeek[3]} </p>
-        <p> ${detailByWeek[4]} </p>
-        <p> ${detailByWeek[5]} </p>
-        <p> ${detailByWeek[6]} </p>
+        <p> Day One: ${detailByWeek[0]} </p>
+        <p> Day Two: ${detailByWeek[1]} </p>
+        <p> Day Three: ${detailByWeek[2]} </p>
+        <p> Day Four: ${detailByWeek[3]} </p>
+        <p> Day Five: ${detailByWeek[4]} </p>
+        <p> Day Six: ${detailByWeek[5]} </p>
+        <p> Day Sexen: ${detailByWeek[6]} </p>
    </div>
    </section>`
 }
@@ -149,42 +149,42 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
    <section class='card activity' id= 'card-activity'>
     <div>
       <h3> Total Active Minutes</h3>
-      <br>
+      
       <p> ${stepCount} steps </p>
-      <br>
+      
       <p> ${miles} miles</p>
-      <br>
+      
     </div>
     <div class='data-row'>
       <p>Week 1: ${weekSteps[0]} </p>
-      <br>
+      
       <p>Week 2: ${weekSteps[1]} </p>
-      <br>
+      
       <p>Week 3: ${weekSteps[2]} </p>
-      <br>
+      
       <p>Week 4: ${weekSteps[3]} </p>
-      <br>
+      
       <p>Week 5: ${weekSteps[4]} </p>
-      <br>
+      
       <p>Week 6: ${weekSteps[5]} </p>
-      <br>
+      
       <p>Week 7: ${weekSteps[6]} </p> 
-      <br>
+      
     </div>
     <div class ='data-row'> 
-       <p> ${stepGoalMet[0]} </p>
-       <br>
-      <p> ${stepGoalMet[1]} </p>
-      <br>
-      <p> ${stepGoalMet[2]} </p>
-      <br>
-      <p> ${stepGoalMet[3]} </p>
-      <br>
-      <p> ${stepGoalMet[4]} </p>
-      <br>
-      <p> ${stepGoalMet[5]} </p>
-      <br>
-      <p> ${stepGoalMet[6]} </p> 
+       <p> Goal Met: ${stepGoalMet[0]} </p>
+       
+      <p> Goal Met: ${stepGoalMet[1]} </p>
+      
+      <p> Goal Met: ${stepGoalMet[2]} </p>
+      
+      <p> Goal Met: ${stepGoalMet[3]} </p>
+      
+      <p> Goal Met: ${stepGoalMet[4]} </p>
+      
+      <p> Goal Met: ${stepGoalMet[5]} </p>
+      
+      <p> Goal Met: ${stepGoalMet[6]} </p> 
     </div> 
     <img id="activityLogo" src="activity-icon.png" alt="activity-icon" width="50" height="50"/>
    </section>
@@ -194,9 +194,9 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
 function createSingleCard(cardTitle, outputToDisplay) {
   hydrationDisplay.innerHTML += `
   <section class='card single'> 
-  <h3> ${cardTitle} </h3>
+  <h3> Today's Date: ${cardTitle} </h3>
   <div>
-  <p> ${outputToDisplay} </p>
+  <p> Today's Ounces: ${outputToDisplay} </p>
   </div>
   <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
   </section>`
@@ -207,30 +207,29 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
   <section class='card seven-day'> 
     <h3> ${cardTitle} </h3>
     <div class='dataRow'>
-      <p> ${outputToDisplay[0]} </p>
-      <p> ${outputToDisplay[1]} </p>
-      <p> ${outputToDisplay[2]} </p>
-      <p> ${outputToDisplay[3]} </p>
-      <p> ${outputToDisplay[4]} </p>
-      <p> ${outputToDisplay[5]} </p>
-      <p> ${outputToDisplay[6]} </p>
+      <p> Day One: ${outputToDisplay[0]} </p>
+      <p> Day Two: ${outputToDisplay[1]} </p>
+      <p> Day Three: ${outputToDisplay[2]} </p>
+      <p> Day Four: ${outputToDisplay[3]} </p>
+      <p> Day Five: ${outputToDisplay[4]} </p>
+      <p> Day Six: ${outputToDisplay[5]} </p>
+      <p> Day Seve: ${outputToDisplay[6]} </p>
     </div>
   </section>`
 }
 
+function createNewHydrationData(userId, currentDate, userOunces) {
+  const newHydrationData = fetchHydrationData()
+
+  hydrationDisplay.innerHTML += `
+        <section class='card single'> 
+        <h3> ${cardTitle} </h3>
+        <div>
+        <p> ${outputToDisplay} </p>
+        </div>
+        <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
+        </section>`
+}
 
 
 export default currentUser
-
-// function createNewHydrationData(cardTitle, outputToDisplay) {
-//   const newHydrationData = fetchHydrationData()
-
-//   hydrationDisplay.innerHTML += `
-//         <section class='card single'> 
-//         <h3> ${cardTitle} </h3>
-//         <div>
-//         <p> ${outputToDisplay} </p>
-//         </div>
-//         <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
-//         </section>`
-// }
