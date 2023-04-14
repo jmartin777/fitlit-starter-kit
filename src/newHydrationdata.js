@@ -4,9 +4,9 @@ const fetchNewHydration = (userId, currentDate, userOunces) => {
   fetch(hydrationURL, {
     method: 'POST',
     body: JSON.stringify({   
-      userID: user,
-      date: "4/11/2023",
-      numOunces: 54
+      userID: userId,
+      date: currentDate,
+      numOunces: userOunces
   }),
     headers: {"Content-Type": "application/json"}
   })

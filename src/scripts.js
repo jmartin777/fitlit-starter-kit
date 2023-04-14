@@ -36,6 +36,8 @@ const motivatedInput = document.getElementById("motivated-input")
 const unmotivatedInput = document.getElementById("unmotivated-input")
 const displayQuoteBox = document.querySelector(".display-quote-box")
 const submitButton = document.querySelector(".submit-message-button")
+const hydrationSubmitButton = document.querySelector(".hydration-submit")
+const ouncesInput = document.getElementById("ouncesInput")
 
 window.addEventListener('load', () => {
   fetchAll()
@@ -86,14 +88,16 @@ function pageLoad() {
     currentUserHydration.findSingleDayOunces(currentUserHydration.findMostRecentDay()));
   createSevenDayCard('Ounces for Week',
     currentUserHydration.findOuncesLastSevenDays());
-    // createNewHydrationData('Today\'s Ounces', )
+  fetchNewHydration(currentUser.userId, currentUserHydration.findMostRecentDay(),ouncesInput)
 
   // Activity 
   activityCard(currentUserActivity.findMostRecentSteps(),
     currentUserActivity.calculateMiles(currentUserActivity.findMostRecentDay()),
     currentUserActivity.findStepsLastSevenDays(currentUserActivity.findMostRecentDay()), currentUserActivity.checkGoalLastSevenDays(currentUserActivity.findMostRecentDay()))
 }
+
 submitButton.addEventListener('click', selectMotivation)
+
 
 function getRandomIndex(array){
   return Math.floor(Math.random() * array.length)
@@ -197,6 +201,13 @@ function createSingleCard(cardTitle, outputToDisplay) {
   <h3> Today's Date: ${cardTitle} </h3>
   <div>
   <p> Today's Ounces: ${outputToDisplay} </p>
+  <form>
+    <fieldset>
+    <legend>Update Daily Ounces</legend>
+    <input id="ouncesInput" type="number" name="updated-ounces" value="0">
+    <button class="hydration-submit">Submit Ounces<button/>
+    </fieldset>
+  </form>
   </div>
   <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
   </section>`
@@ -218,18 +229,38 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
   </section>`
 }
 
-function createNewHydrationData(userId, currentDate, userOunces) {
-  const newHydrationData = fetchHydrationData()
+function createNewHydrationData(cardTitle, outputToDisplay) {
+  hydrationSubmitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    currentUserHydration = new UserHydration(e.target);
+    const newNumOunces = {
+      userID:formData.get(currentUser.userId),
+      date: formData.get(date),
+      numOunces: formData.get(newNumOunces),
+    };
+    createSingleCard(cardTitle, outputToDisplay);
+    e.target.reset();
+  });
+  createNewHydrationData(currentUserHydration.findMostRecentDay(),
+    currentUserHydration.findSingleDayOunces(currentUserHydration.findMostRecentDay()))
 
   hydrationDisplay.innerHTML += `
-        <section class='card single'> 
-        <h3> ${cardTitle} </h3>
-        <div>
-        <p> ${outputToDisplay} </p>
-        </div>
-        <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
-        </section>`
+  <section class='card single'> 
+  <h3> Today's Date: ${cardTitle} </h3>
+  <div>
+  <p> Today's Ounces: ${outputToDisplay} </p>
+  <form>
+    <fieldset>
+    <legend>Update Daily Ounces</legend>
+    <input type="number" name="updated-ounces" value="${outputToDisplay}">
+    <button class="hydration-submit">Submit Ounces<button/>
+    </fieldset>
+  </form>
+  </div>
+  <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
+  </section>`
 }
+
 
 
 export default currentUser
