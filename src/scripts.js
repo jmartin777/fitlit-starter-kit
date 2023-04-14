@@ -26,7 +26,7 @@ let currentUser;
 let currentUserSleep;
 let currentUserHydration;
 let currentUserActivity;
-
+let hydrationSubmitButton
 //Selectors
 const hydrationDisplay = document.querySelector('.hydration-display')
 const sleepDisplay = document.querySelector('.sleep-display')
@@ -36,8 +36,8 @@ const motivatedInput = document.getElementById("motivated-input")
 const unmotivatedInput = document.getElementById("unmotivated-input")
 const displayQuoteBox = document.querySelector(".display-quote-box")
 const submitButton = document.querySelector(".submit-message-button")
-const hydrationSubmitButton = document.querySelector(".hydration-submit")
-const ouncesInput = document.getElementById("ouncesInput")
+
+
 
 window.addEventListener('load', () => {
   fetchAll()
@@ -50,9 +50,6 @@ window.addEventListener('load', () => {
       pageLoad()
     })
 })
-
-// newHydrationData.addEventListener('click', createNewHydrationData())
-
 
 function loadUserInfo(currentUserData, userData) {
   document.getElementById('firstName').innerHTML = `Welcome ${currentUserData.userName}!`;
@@ -88,12 +85,15 @@ function pageLoad() {
     currentUserHydration.findSingleDayOunces(currentUserHydration.findMostRecentDay()));
   createSevenDayCard('Ounces for Week',
     currentUserHydration.findOuncesLastSevenDays());
-  fetchNewHydration(currentUser.userId, currentUserHydration.findMostRecentDay(),ouncesInput)
-
+  
   // Activity 
   activityCard(currentUserActivity.findMostRecentSteps(),
     currentUserActivity.calculateMiles(currentUserActivity.findMostRecentDay()),
     currentUserActivity.findStepsLastSevenDays(currentUserActivity.findMostRecentDay()), currentUserActivity.checkGoalLastSevenDays(currentUserActivity.findMostRecentDay()))
+
+  // Event Listeners
+   hydrationSubmitButton = document.querySelector(".hydration-submit")
+  hydrationSubmitButton.addEventListener('click',createNewHydrationData);
 }
 
 submitButton.addEventListener('click', selectMotivation)
@@ -229,36 +229,13 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
   </section>`
 }
 
-function createNewHydrationData(cardTitle, outputToDisplay) {
-  hydrationSubmitButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    currentUserHydration = new UserHydration(e.target);
-    const newNumOunces = {
-      userID:formData.get(currentUser.userId),
-      date: formData.get(date),
-      numOunces: formData.get(newNumOunces),
-    };
-    createSingleCard(cardTitle, outputToDisplay);
-    e.target.reset();
-  });
-  createNewHydrationData(currentUserHydration.findMostRecentDay(),
-    currentUserHydration.findSingleDayOunces(currentUserHydration.findMostRecentDay()))
 
-  hydrationDisplay.innerHTML += `
-  <section class='card single'> 
-  <h3> Today's Date: ${cardTitle} </h3>
-  <div>
-  <p> Today's Ounces: ${outputToDisplay} </p>
-  <form>
-    <fieldset>
-    <legend>Update Daily Ounces</legend>
-    <input type="number" name="updated-ounces" value="${outputToDisplay}">
-    <button class="hydration-submit">Submit Ounces<button/>
-    </fieldset>
-  </form>
-  </div>
-  <img id="hydrationIcon" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
-  </section>`
+
+function createNewHydrationData(e) {
+  e.preventDefault();
+  const ouncesInput = document.getElementById("ouncesInput")
+  currentUserHydration = new UserHydration(currentUser.userId,allUserHydrationData);
+  fetchNewHydration(currentUser.userId, currentUserHydration.findMostRecentDay(),ouncesInput.value)
 }
 
 

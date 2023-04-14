@@ -13,8 +13,6 @@ const fetchNewHydration = (userId, currentDate, userOunces) => {
   .then(res => res.json())
   .then(data => {
     console.log(data);
-    currentUser.numOunces = numOunces;
-    // and update the dom because we have new data
   })
   .catch(error => console.log(error))
  }
