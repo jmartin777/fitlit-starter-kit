@@ -38,14 +38,19 @@ aside {
   height: 100%;
   border-radius: 2%;
 }
+.card:hover{
+cursor:pointer;
+transform: rotateY(180deg)
+}
 
-/* .info-card img {
-  width: 50px;
-  height: 50px;
-  border-radius: 30%;
-  border-style: double;
-  margin-right: 20px;
-} */
+.front {
+  background-image: url(https://source.unsplash.com/photos/Yuv-iwByVRQ/145x205);
+}
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+}
 
 .info-card .user-info {
   color: darkgray;
@@ -70,9 +75,10 @@ aside {
   border: 1px solid #45B8AC;
   border-radius: 5%;
   margin-top: 30px;
-    padding: 10px;
-    width: 145px;
-    height: 205px;
+  padding: 10px;
+  width: 145px;
+  height: 205px;
+  transition:transform 1500ms;
 }
 
 #card-activity{
