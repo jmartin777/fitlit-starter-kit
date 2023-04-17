@@ -129,7 +129,7 @@ function sleepSummaryCard(avgHours, avgQuality) {
 
 function sleepWeekCard(detail, detailToday, detailByWeek) {
   sleepDisplay.innerHTML += `
-  <section class='card sleep-week'> 
+  <section class='card-sleep-week'> 
     <h3>Sleep ${detail}</h3>
        <h3> Today </h3>
       <div>
@@ -145,6 +145,7 @@ function sleepWeekCard(detail, detailToday, detailByWeek) {
         <p> Day Six: ${detailByWeek[5]} </p>
         <p> Day Sexen: ${detailByWeek[6]} </p>
    </div>
+   <img id="sleepIcon2" src="Sleep-Icon.PNG" alt="Sleep-Icon" width="50" height="50"/>
    </section>`
 }
 
@@ -205,7 +206,7 @@ function createSingleCard(cardTitle, outputToDisplay) {
     <fieldset>
     <legend>Update Daily Ounces</legend>
     <input id="ouncesInput" type="number" name="updated-ounces" value="0">
-    <button class="hydration-submit">Submit Ounces<button/>
+    <button class="hydration-submit">Submit Ounces
     </fieldset>
   </form>
   </div>
@@ -226,6 +227,7 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
       <p> Day Six: ${outputToDisplay[5]} </p>
       <p> Day Seve: ${outputToDisplay[6]} </p>
     </div>
+    <img id="hydrationIcon2" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
   </section>`
 }
 
