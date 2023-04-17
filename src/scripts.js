@@ -145,6 +145,7 @@ function sleepWeekCard(detail, detailToday, detailByWeek) {
         <p> Day Six: ${detailByWeek[5]} </p>
         <p> Day Sexen: ${detailByWeek[6]} </p>
    </div>
+   <img id="sleepIcon2" src="Sleep-Icon.PNG" alt="Sleep-Icon" width="50" height="50"/>
    </section>`
 }
 
@@ -226,6 +227,7 @@ function createSevenDayCard(cardTitle, outputToDisplay) {
       <p> Day Six: ${outputToDisplay[5]} </p>
       <p> Day Seve: ${outputToDisplay[6]} </p>
     </div>
+    <img id="hydrationIcon2" src="Hydration-Icon.PNG" alt="Hydration-Icon" width="50" height="50"/>
   </section>`
 }
 
