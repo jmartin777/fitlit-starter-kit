@@ -43,15 +43,6 @@ cursor:pointer;
 transform: rotateY(180deg)
 }
 
-.front {
-  background-image: url(https://source.unsplash.com/photos/Yuv-iwByVRQ/145x205);
-}
-.front,
-.back {
-  height: 100%;
-  width: 100%;
-}
-
 .info-card .user-info {
   color: darkgray;
   display: flex;
@@ -70,8 +61,21 @@ transform: rotateY(180deg)
   margin-bottom: 5px;
 }
 
+.front {
+  background-image: url(work-out-pic.png)
+}
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
 .card {
-  background-color: #363945;
+  /* background-color: #363945; */
   border: 1px solid #45B8AC;
   border-radius: 5%;
   margin-top: 30px;
@@ -79,6 +83,7 @@ transform: rotateY(180deg)
   width: 145px;
   height: 205px;
   transition:transform 1500ms;
+  position: relative;
 }
 
 #card-activity{

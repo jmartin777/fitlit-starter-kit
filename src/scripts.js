@@ -114,9 +114,10 @@ function selectMotivation() {
 
 function sleepSummaryCard(avgHours, avgQuality) {
   sleepDisplay.innerHTML += `
-  <section class='card sleep-summary'> 
+  <section class='card'> 
        <h3> Sleep Summary </h3>
-      <div>
+      <div class="front">
+      <div class="back"></div>
           <p>All-time Hours Average: </p>  
           <p> ${avgHours} Avg </p> 
           
@@ -150,16 +151,15 @@ function sleepWeekCard(detail, detailToday, detailByWeek) {
 
 function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
   activityDisplay.innerHTML += `
-   <section class='card activity' id= 'card-activity'>
-    <div>
+   <section class='card' id= 'card-activity'>
+    <div class="front">
+    <div class="back"></back>
       <h3> Total Active Minutes</h3>
       
       <p> ${stepCount} steps </p>
       
       <p> ${miles} miles</p>
-      
-    </div>
-    <div class='data-row'>
+
       <p>Week 1: ${weekSteps[0]} </p>
       
       <p>Week 2: ${weekSteps[1]} </p>
@@ -173,10 +173,8 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
       <p>Week 6: ${weekSteps[5]} </p>
       
       <p>Week 7: ${weekSteps[6]} </p> 
-      
-    </div>
-    <div class ='data-row'> 
-       <p> Goal Met: ${stepGoalMet[0]} </p>
+
+      <p> Goal Met: ${stepGoalMet[0]} </p>
        
       <p> Goal Met: ${stepGoalMet[1]} </p>
       
@@ -189,6 +187,13 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
       <p> Goal Met: ${stepGoalMet[5]} </p>
       
       <p> Goal Met: ${stepGoalMet[6]} </p> 
+      
+    </div>
+    <div class='data-row'>
+     
+    </div>
+    <div class ='data-row'> 
+      
     </div> 
     <img id="activityLogo" src="activity-icon.png" alt="activity-icon" width="50" height="50"/>
    </section>
