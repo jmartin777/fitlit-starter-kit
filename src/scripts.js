@@ -1,13 +1,7 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 
-
-// An example of how you tell webpack to use a CSS file
 import './css/styles.css';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png';
-
 import User from './user';
 import UserHydration from './userHydration';
 import Sleep from './Sleep';
@@ -36,8 +30,6 @@ const motivatedInput = document.getElementById("motivated-input")
 const unmotivatedInput = document.getElementById("unmotivated-input")
 const displayQuoteBox = document.querySelector(".display-quote-box")
 const submitButton = document.querySelector(".submit-message-button")
-
-
 
 window.addEventListener('load', () => {
   fetchAll()
@@ -68,7 +60,6 @@ function pageLoad() {
 
   // User
   loadUserInfo(currentUser, userData)
-  // *** Need their step goal compared to all user step goal
 
   // Sleep
   sleepSummaryCard(currentUserSleep.findAllTimeAvgOfDetail('hoursSlept'),

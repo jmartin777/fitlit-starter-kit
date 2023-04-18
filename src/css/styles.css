@@ -1,8 +1,9 @@
 html *{
 font-size: 1em !important;
-   color: #f50909 !important;
+   color: #e9d8d8 !important;
    font-family: Arial !important;
    font-weight: bold;
+   text-shadow:0px 0px 10px 0px #45B8AC !important;
 }
 
 #activityLogo {
@@ -10,27 +11,20 @@ font-size: 1em !important;
 }
 
 aside {
+  background-image: url(Level-Up.png);
+  background-size: 110%;
   width: 25%;
 }
 
 body, html {
-  background-color: #343236;
+  background-image: url(Backboard.png);
+  background-size: 100%;
   background-repeat: no-repeat;
   height: 100%;
 }
-/* 
-.card {
-   background-image: url(Light-bulb.png);
-  border: 2px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-    padding: 10px;
-    width: 153px;
-    height: 466px;
-} */
 
 #card-activity{
-  background-image: url(Level-Up.png);
+  background-color: #262121;
   border: 2px solid #45B8AC;
   border-radius: 5%;
   margin-top: 30px;
@@ -38,8 +32,9 @@ body, html {
     width: 172px;
     height: 670px;
 }
+
 #card-summary-sleep{
-  background-image: url(Light-bulb.png);
+  background-color: #262121;
   border: 2px solid #45B8AC;
   border-radius: 5%;
   margin-top: 30px;
@@ -49,18 +44,42 @@ body, html {
 }
 
 #card-sleep-week {
-  background-image: url(Light-bulb.png);
-  border: 2px solid #45B8AC;
+  background-color: #262121;
   border-radius: 5%;
+  border: 2px solid #45B8AC;
   margin-top: 30px;
     padding: 10px;
     width: 153px;
     height: 466px;
 }
+#hydration-week-card:hover{
+  box-shadow: 0px 0px 40px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
 
-.card:hover{
-cursor:pointer;
-/* transform: rotateX('90') */
+#hydration-single-card:hover{
+  box-shadow: 0px 0px 35px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+#card-summary-sleep:hover{
+  box-shadow: 0px 0px 20px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+#card-sleep-week:hover{
+  box-shadow: 0px 0px 50px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+#card-activity:hover{
+  box-shadow: 0px 0px 70px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
 }
 
 .card-display {
@@ -76,23 +95,6 @@ cursor:pointer;
 fieldset {
   border: transparent;
 }
-/* 
-.front {
-  
-} */
-/* 
-.front
- {
-  border: 1px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-  width: 153px;
-  height: 405px;
-  border-radius: 2rem;
-  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
-  position: absolute;
-  backface-visibility: hidden;
-} */
 
 #gitFitLogo {
   height: 488px;
@@ -118,7 +120,7 @@ h3 {
 
 #hydrationIcon {
   width: 40px;
-  margin-top: 160px;
+  margin-top: 120px;
 } 
 
 #hydrationIcon2 {
@@ -129,8 +131,9 @@ h3 {
 .hydration-display {
   padding: 0px 20px;
 }
+
 #hydration-single-card, #hydration-week-card{
-  background-image: url(Light-bulb.png);
+  background-color: #262121;
   border: 2px solid #45B8AC;
   border-radius: 5%;
   margin-top: 30px;
@@ -177,6 +180,10 @@ label {
 .main-display{
   display: flex;
   height: 100%;
+}
+
+#ouncesInput{
+  width: 125px;
 }
 
 #sleepIcon {
