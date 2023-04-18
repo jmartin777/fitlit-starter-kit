@@ -114,10 +114,9 @@ function selectMotivation() {
 
 function sleepSummaryCard(avgHours, avgQuality) {
   sleepDisplay.innerHTML += `
-  <section class='card'> 
+  <section class='card' id="card-summary-sleep"> 
        <h3> Sleep Summary </h3>
-      <div class="front">
-      <div class="back"></div>
+      <div class="card">
           <p>All-time Hours Average: </p>  
           <p> ${avgHours} Avg </p> 
           
@@ -130,11 +129,10 @@ function sleepSummaryCard(avgHours, avgQuality) {
 
 function sleepWeekCard(detail, detailToday, detailByWeek) {
   sleepDisplay.innerHTML += `
-  <section class='card-sleep-week'> 
-
+  <section class="card" id='card-sleep-week'> 
     <h3>Sleep ${detail}</h3>
        <h3> Today </h3>
-       <div class="front">
+       <div class="card">
              <p> Hours Today ${detailToday} </p> 
       </div>
       <h3> This Week </h3>
@@ -154,8 +152,7 @@ function sleepWeekCard(detail, detailToday, detailByWeek) {
 function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
   activityDisplay.innerHTML += `
    <section class='card' id= 'card-activity'>
-    <div class="front">
-    <div class="back"></back>
+    <div class="card">
       <h3> Total Active Minutes</h3>
       
       <p> ${stepCount} steps </p>
@@ -191,11 +188,7 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
       <p> Goal Met: ${stepGoalMet[6]} </p> 
       
     </div>
-    <div class='data-row'>
-     
-    </div>
-    <div class ='data-row'> 
-      
+    <div class='data-row'>  
     </div> 
     <img id="activityLogo" src="activity-icon.png" alt="activity-icon" width="50" height="50"/>
    </section>
@@ -204,9 +197,9 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
 
 function createSingleCard(cardTitle, outputToDisplay) {
   hydrationDisplay.innerHTML += `
-  <section class='card'> 
+  <section class='card'id="hydration-single-card"> 
   <h3> Today's Date: ${cardTitle} </h3>
-  <div class="front">
+  <div class="card">
   <p> Today's Ounces: ${outputToDisplay} </p>
   <form>
     <fieldset>
@@ -222,10 +215,9 @@ function createSingleCard(cardTitle, outputToDisplay) {
 
 function createSevenDayCard(cardTitle, outputToDisplay) {
   hydrationDisplay.innerHTML += `
-  <section class='card'> 
+  <section class='card' id="hydration-week-card"> 
     <h3> ${cardTitle} </h3>
-    <div class="front">
-    <div class="back">Back Of Card</back>
+    <div class="card">
       <p> Day One: ${outputToDisplay[0]} </p>
       <p> Day Two: ${outputToDisplay[1]} </p>
       <p> Day Three: ${outputToDisplay[2]} </p>
