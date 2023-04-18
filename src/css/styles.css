@@ -12,7 +12,7 @@ font-size: 1em !important;
 
 aside {
   background-image: url(Level-Up.png);
-  background-size: 110%;
+  background-size: 180%;
   width: 25%;
 }
 
@@ -88,6 +88,8 @@ body, html {
 }
 
 .display-quote-box {
+  border:2px solid #45B8AC;
+  background-color: #262121;
   color: #45B8AC;
   margin-top: 5%;
 }
@@ -202,6 +204,7 @@ label {
 }
 
 .quote-box {
+  background-color: #262121;
   margin-top: 5%;
   border: 2px solid #45B8AC;
   display: flex;
