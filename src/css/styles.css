@@ -1,12 +1,93 @@
-/* * {
-  border: orange solid 1px;
-} */
+
+#activityLogo {
+  margin-top: 10px;
+}
+
+aside {
+  width: 25%;
+}
 
 body, html {
   background-color: #343236;
   background-repeat: no-repeat;
   height: 100%;
 }
+
+.card {
+  border: 1px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 30px;
+  padding: 10px;
+  width: 145px;
+  height: 205px;
+  transition:transform 1500ms;
+  position: relative;
+    padding: 10px;
+    width: 153px;
+    height: 405px;
+}
+
+#card-activity{
+  background-color: #363945;
+  border: 1px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 30px;
+    padding: 10px;
+    width: 172px;
+    height: 670px;
+}
+
+.card-sleep-week {
+  background-color: #363945;
+  border: 1px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 30px;
+    padding: 10px;
+    width: 153px;
+    height: 466px;
+}
+
+.card:hover{
+cursor:pointer;
+transform: rotateY(180deg)
+}
+
+.card-display {
+  display: flex;
+  padding-left: 30px;
+}
+
+.display-quote-box {
+  color: #45B8AC;
+  margin-top: 5%;
+}
+
+fieldset {
+  border: transparent;
+}
+
+.front {
+  background-image: url(work-out-pic.png)
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+#gitFitLogo {
+  height: 488px;
+  width: 500px;
+  border: 1px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 25px;
+  margin-left: 25px;
+  }
 
 h1 {
   color:darkgray;
@@ -19,28 +100,18 @@ h3 {
   background-color: black;
 }
 
-text {
-  color: darkgray;
+#hydrationIcon {
+  width: 40px;
+  margin-top: 160px;
+} 
 
-}
+#hydrationIcon2 {
+  width: 40px;
+  margin-top:50px;
+} 
 
-aside {
-  width: 25%;
-}
-.info-card {
-  background-color: #363945;
-  border: 1px solid #45B8AC;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 25%;
-  height: 100%;
-  border-radius: 2%;
-}
-.card:hover{
-cursor:pointer;
-transform: rotateY(180deg)
+.hydration-display {
+  padding: 0px 20px;
 }
 
 .info-card .user-info {
@@ -61,43 +132,20 @@ transform: rotateY(180deg)
   margin-bottom: 5px;
 }
 
-.front {
-  background-image: url(work-out-pic.png)
-}
-.front,
-.back {
-  height: 100%;
-  width: 100%;
-  border-radius: 2rem;
-  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-.card {
-  /* background-color: #363945; */
-  border: 1px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-  padding: 10px;
-  width: 145px;
-  height: 205px;
-  transition:transform 1500ms;
-  position: relative;
-}
-
-#card-activity{
+.info-card {
   background-color: #363945;
   border: 1px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-    padding: 10px;
-    width: 145px;
-    height: 460px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25%;
+  height: 100%;
+  border-radius: 2%;
 }
 
-.top-display{
-  display: flex;
+label {
+  padding: 0;
 }
 
 .main-display{
@@ -105,32 +153,41 @@ transform: rotateY(180deg)
   height: 100%;
 }
 
-.card-display {
+#sleepIcon {
+  width: 50px;
+  margin-top: 120px;
+}
+
+#sleepIcon2 {
+  width: 50px;
+  margin-top: -4px;
+}
+
+.submit-message {
+  padding: 0;
+  margin: 5%;
+}
+
+.quote-box {
+  margin-top: 5%;
+  border: 1px solid #45B8AC;
   display: flex;
-  padding-left: 30px;
+  align-items: center;
+  padding: 0;
 }
 
-.hydration-display {
-  padding: 0px 20px;
+.top-display{
+  display: flex;
 }
 
-#gitFitLogo {
-height: 488px;
-width: 500px;
-border: 1px solid #45B8AC;
-border-radius: 5%;
-margin-top: 25px;
-margin-left: 25px;
+text {
+  color: darkgray;
+
 }
 
-#hydrationIcon {
-  width: 40px;
-  margin-top: 70px;
-} 
 
-#activityLogo {
-  margin-top: 10px;
-}
+
+
 
 
 
