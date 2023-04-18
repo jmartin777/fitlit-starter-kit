@@ -1,65 +1,145 @@
+html *{
+font-size: 1em !important;
+   color: #e9d8d8 !important;
+   font-family: Arial !important;
+   font-weight: bold;
+   text-shadow:0px 0px 10px 0px #45B8AC !important;
+}
+
+#activityLogo {
+  margin-top: 10px;
+}
+
+aside {
+  background-image: url(Level-Up.png);
+  background-size: 110%;
+  width: 25%;
+}
+
 body, html {
-  background-color: #343236;
+  background-image: url(Backboard.png);
+  background-size: 100%;
   background-repeat: no-repeat;
   height: 100%;
 }
 
-h1 {
-  color:darkgray;
-  text-shadow: 0 0 3px #45B8AC;
+#card-activity{
+  background-color: #262121;
+  border: 2px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 30px;
+    padding: 10px;
+    width: 172px;
+    height: 670px;
 }
 
-h3 {
-  color: darkgray;
-  border: 1px solid #45B8AC;
-  background-color: black;
+#card-summary-sleep{
+  background-color: #262121;
+  border: 2px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 30px;
+    padding: 10px;
+    width: 153px;
+    height: 400px;
 }
 
-text {
-  color: darkgray;
-
+#card-sleep-week {
+  background-color: #262121;
+  border-radius: 5%;
+  border: 2px solid #45B8AC;
+  margin-top: 30px;
+    padding: 10px;
+    width: 153px;
+    height: 466px;
+}
+#hydration-week-card:hover{
+  box-shadow: 0px 0px 40px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
 }
 
-aside {
-  width: 25%;
+#hydration-single-card:hover{
+  box-shadow: 0px 0px 35px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+#card-summary-sleep:hover{
+  box-shadow: 0px 0px 20px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+#card-sleep-week:hover{
+  box-shadow: 0px 0px 50px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+#card-activity:hover{
+  box-shadow: 0px 0px 70px 0px #45B8AC;
+  cursor:pointer;
+  transition: box-shadow 0.6s linear;
+}
+
+.card-display {
+  display: flex;
+  padding-left: 30px;
+}
+
+.display-quote-box {
+  color: #45B8AC;
+  margin-top: 5%;
 }
 
 fieldset {
   border: transparent;
 }
 
-.info-card {
-  background-color: #363945;
-  border: 1px solid #45B8AC;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 25%;
-  height: 100%;
-  border-radius: 2%;
+#gitFitLogo {
+  height: 488px;
+  width: 500px;
+  border: 2px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 25px;
+  margin-left: 25px;
+  }
+
+h1 {
+  color:darkgray;
+  text-shadow: 0 0 3px #45B8AC;
+  box-shadow: 2px 2px 2px 1px rgba(91, 203, 244, 0.2);
 }
 
-.quote-box {
-  margin-top: 5%;
-  border: 1px solid #45B8AC;
-  display: flex;
-  align-items: center;
-  padding: 0;
+h3 {
+  color: darkgray;
+  border: 2px solid #45B8AC;
+  background-color: black;
+  box-shadow: 2px 5px 2px 5px rgba(250, 250, 250, 0.2);
 }
 
-.submit-message {
-  padding: 0;
-  margin: 5%;
+#hydrationIcon {
+  width: 40px;
+  margin-top: 120px;
+} 
+
+#hydrationIcon2 {
+  width: 40px;
+  margin-top:50px;
+} 
+
+.hydration-display {
+  padding: 0px 20px;
 }
 
-label {
-  padding: 0;
-}
-
-.display-quote-box {
-  color: #45B8AC;
-  margin-top: 5%;
+#hydration-single-card, #hydration-week-card{
+  background-color: #262121;
+  border: 2px solid #45B8AC;
+  border-radius: 5%;
+  margin-top: 30px;
+    padding: 10px;
+    width: 153px;
+    height: 400px;
 }
 
 .info-card .user-info {
@@ -80,38 +160,21 @@ label {
   margin-bottom: 5px;
 }
 
-.card {
+.info-card {
   background-color: #363945;
-  border: 1px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-    padding: 10px;
-    width: 153px;
-    height: 405px;
-}
-
-#card-activity{
-  background-color: #363945;
-  border: 1px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-    padding: 10px;
-    width: 172px;
-    height: 670px;
-}
-
-.card-sleep-week {
-  background-color: #363945;
-  border: 1px solid #45B8AC;
-  border-radius: 5%;
-  margin-top: 30px;
-    padding: 10px;
-    width: 153px;
-    height: 466px;
-}
-
-.top-display{
+  border: 2px solid #45B8AC;
+  box-shadow: 2px 2px 2px 1px rgba(249, 249, 249, 0.2);
+  padding: 10px;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25%;
+  height: 100%;
+  border-radius: 2%;
+}
+
+label {
+  padding: 0;
 }
 
 .main-display{
@@ -119,23 +182,10 @@ label {
   height: 100%;
 }
 
-.card-display {
-  display: flex;
-  padding-left: 30px;
+#ouncesInput{
+  width: 125px;
 }
 
-.hydration-display {
-  padding: 0px 20px;
-}
-
-#gitFitLogo {
-height: 488px;
-width: 500px;
-border: 1px solid #45B8AC;
-border-radius: 5%;
-margin-top: 25px;
-margin-left: 25px;
-}
 #sleepIcon {
   width: 50px;
   margin-top: 120px;
@@ -146,19 +196,31 @@ margin-left: 25px;
   margin-top: -4px;
 }
 
-#hydrationIcon {
-  width: 40px;
-  margin-top: 160px;
-} 
-
-#hydrationIcon2 {
-  width: 40px;
-  margin-top:50px;
-} 
-
-#activityLogo {
-  margin-top: 10px;
+.submit-message {
+  padding: 0;
+  margin: 5%;
 }
+
+.quote-box {
+  margin-top: 5%;
+  border: 2px solid #45B8AC;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.top-display{
+  display: flex;
+}
+
+text {
+  color: rgb(253, 19, 19);
+
+}
+
+
+
+
 
 
 

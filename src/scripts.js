@@ -1,13 +1,7 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 
-
-// An example of how you tell webpack to use a CSS file
 import './css/styles.css';
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png';
-
 import User from './user';
 import UserHydration from './userHydration';
 import Sleep from './Sleep';
@@ -36,8 +30,6 @@ const motivatedInput = document.getElementById("motivated-input")
 const unmotivatedInput = document.getElementById("unmotivated-input")
 const displayQuoteBox = document.querySelector(".display-quote-box")
 const submitButton = document.querySelector(".submit-message-button")
-
-
 
 window.addEventListener('load', () => {
   fetchAll()
@@ -68,7 +60,6 @@ function pageLoad() {
 
   // User
   loadUserInfo(currentUser, userData)
-  // *** Need their step goal compared to all user step goal
 
   // Sleep
   sleepSummaryCard(currentUserSleep.findAllTimeAvgOfDetail('hoursSlept'),
@@ -114,9 +105,9 @@ function selectMotivation() {
 
 function sleepSummaryCard(avgHours, avgQuality) {
   sleepDisplay.innerHTML += `
-  <section class='card sleep-summary'> 
+  <section class='card' id="card-summary-sleep"> 
        <h3> Sleep Summary </h3>
-      <div>
+      <div class="card">
           <p>All-time Hours Average: </p>  
           <p> ${avgHours} Avg </p> 
           
@@ -129,10 +120,10 @@ function sleepSummaryCard(avgHours, avgQuality) {
 
 function sleepWeekCard(detail, detailToday, detailByWeek) {
   sleepDisplay.innerHTML += `
-  <section class='card-sleep-week'> 
+  <section class="card" id='card-sleep-week'> 
     <h3>Sleep ${detail}</h3>
        <h3> Today </h3>
-      <div>
+       <div class="card">
              <p> Hours Today ${detailToday} </p> 
       </div>
       <h3> This Week </h3>
@@ -151,16 +142,14 @@ function sleepWeekCard(detail, detailToday, detailByWeek) {
 
 function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
   activityDisplay.innerHTML += `
-   <section class='card activity' id= 'card-activity'>
-    <div>
+   <section class='card' id= 'card-activity'>
+    <div class="card">
       <h3> Total Active Minutes</h3>
       
       <p> ${stepCount} steps </p>
       
       <p> ${miles} miles</p>
-      
-    </div>
-    <div class='data-row'>
+
       <p>Week 1: ${weekSteps[0]} </p>
       
       <p>Week 2: ${weekSteps[1]} </p>
@@ -174,10 +163,8 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
       <p>Week 6: ${weekSteps[5]} </p>
       
       <p>Week 7: ${weekSteps[6]} </p> 
-      
-    </div>
-    <div class ='data-row'> 
-       <p> Goal Met: ${stepGoalMet[0]} </p>
+
+      <p> Goal Met: ${stepGoalMet[0]} </p>
        
       <p> Goal Met: ${stepGoalMet[1]} </p>
       
@@ -190,6 +177,9 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
       <p> Goal Met: ${stepGoalMet[5]} </p>
       
       <p> Goal Met: ${stepGoalMet[6]} </p> 
+      
+    </div>
+    <div class='data-row'>  
     </div> 
     <img id="activityLogo" src="activity-icon.png" alt="activity-icon" width="50" height="50"/>
    </section>
@@ -198,9 +188,9 @@ function activityCard(stepCount, miles, weekSteps, stepGoalMet) {
 
 function createSingleCard(cardTitle, outputToDisplay) {
   hydrationDisplay.innerHTML += `
-  <section class='card single'> 
+  <section class='card'id="hydration-single-card"> 
   <h3> Today's Date: ${cardTitle} </h3>
-  <div>
+  <div class="card">
   <p> Today's Ounces: ${outputToDisplay} </p>
   <form>
     <fieldset>
@@ -216,9 +206,9 @@ function createSingleCard(cardTitle, outputToDisplay) {
 
 function createSevenDayCard(cardTitle, outputToDisplay) {
   hydrationDisplay.innerHTML += `
-  <section class='card seven-day'> 
+  <section class='card' id="hydration-week-card"> 
     <h3> ${cardTitle} </h3>
-    <div class='dataRow'>
+    <div class="card">
       <p> Day One: ${outputToDisplay[0]} </p>
       <p> Day Two: ${outputToDisplay[1]} </p>
       <p> Day Three: ${outputToDisplay[2]} </p>
